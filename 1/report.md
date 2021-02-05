@@ -2,15 +2,15 @@
 
 ## Task 1
 
-The function `LinearRegression().fit()` is a combination of two statements:  
-- `LinearRegression()` creates an instance of the class LinearRegression which is used as our Regression model.  
-        Usage: `model = LinearRegression()`  
-- `fit()` is used to fit the model to the given dataset  
-        Usage: `model.fit(input, output)`  
+The function ***LinearRegression().fit()*** is a combination of two statements:  
+- ***LinearRegression()*** creates an instance of the class LinearRegression which is used as our Regression model.  
+        Usage: ***model = LinearRegression()***  
+- ***fit()*** is used to fit the model to the given dataset  
+        Usage: ***model.fit(input, output)***  
 
-So `model = LinearRegression().fit(input, output)` creates a linear regression model and fits it to a given input and output dataset.  
+So ***model = LinearRegression().fit(input, output)*** creates a linear regression model and fits it to a given input and output dataset.  
 
-`LinearRegression().fit()` fits a linear model with coefficents w = (w1, ..., wp) to minimize the residual sum of squares between the observed targets and the targets predicted by the linear approximation, i.e. Minimise the Sum of Squared Errors.
+***LinearRegression().fit()*** fits a linear model with coefficents w = (w1, ..., wp) to minimize the residual sum of squares between the observed targets and the targets predicted by the linear approximation, i.e. Minimise the Sum of Squared Errors.
 
 ## Task 2
 
