@@ -14,17 +14,79 @@ So `model = LinearRegression().fit(input, output)` creates a linear regression m
 
 ## Task 2
 
+#### Output Table
+
+| degree | bias | variance |
+| :----: | :----: | :----: |
+|        1 | 1002.12   |    36428.8 |
+|        2 |  977.711  |    59290.5 |
+|        3 |   93.5627 |    63145.2 |
+|        4 |   87.1109 |   103549   |
+|        5 |   83.2309 |   117957   |
+|        6 |   83.0022 |   151206   |
+|        7 |   89.8943 |   174210   |
+|        8 |   88.472  |   192695   |
+|        9 |   90.6972 |   223986   |
+|       10 |   95.293  |   220355   |
+|       11 |   95.498  |   247029   |
+|       12 |  143.416  |   245812   |
+|       13 |  109.394  |   262235   |
+|       14 |  175.741  |   248456   |
+|       15 |  236.005  |   263460   |
+|       16 |  250.452  |   274580   |
+|       17 |  329.727  |   289574   |
+|       18 |  340.982  |   302814   |
+|       19 |  432.912  |   320972   |
+|       20 |  442.321  |   333111   |
+
+#### Analysis
+
 As functional classes change, with incresing degree we observe:
 - Bias trend-
-    - For degree *3*, the bias graph takes deep dive, then gradually reduces till degree *9*.
+    - For degree *3*, the bias graph takes deep dive, then gradually reduces till degree *6*.
     - After that the bias unevenly increases till degree *14*.
     - Then it keeps increasing from there.
-    - **Note that** just the general trend of bias falling till approximately degree *10* and then increasing is common, while the other details are case dependent.
+    - **Note that** just the general trend of bias falling till approximately degree *7* and then increasing is common, while the other details are case dependent.
 - Variance trend:
-    - It keeps increasing monotonically till degree *11*.
-    - Then it oscillates in a range of *5000*.
+    - It keeps increasing with some troughs till degree *11*.
+    - Then it oscillates in a range of *5000* till degree *15*.
     - Then it again increases monotonicalls.
-    - **Note that** just the general trend of variance rising till approximately degree *14*, not varying for another *3-4* degrees and then increasing is common, while the other details are case dependent.
+    - **Note that** just the general trend of variance rising till approximately degree *13*, not varying for another *3-4* degrees and then increasing is common, while the other details are case dependent.
+
+## Task 3
+
+#### Output Table
+
+|   degree |       error |
+| :----: | :----: |
+|        1 | 2.32831e-10 |
+|        2 | 1.16415e-10 |
+|        3 | 1.45519e-11 |
+|        4 | 0           |
+|        5 | 0           |
+|        6 | 0           |
+|        7 | 0           |
+|        8 | 2.91038e-11 |
+|        9 | 2.91038e-11 |
+|       10 | 5.82077e-11 |
+|       11 | 2.91038e-11 |
+|       12 | 5.82077e-11 |
+|       13 | 0           |
+|       14 | 1.16415e-10 |
+|       15 | 0           |
+|       16 | 0           |
+|       17 | 0           |
+|       18 | 5.82077e-11 |
+|       19 | 1.16415e-10 |
+|       20 | 0           |
+
+#### Analysis and Reasoning
 
 ## Task 4
+
+#### Output Graph
+
+![Graph](graph.png)
+
+#### Analysis and Reasoning
 
