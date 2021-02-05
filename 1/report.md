@@ -90,3 +90,8 @@ As functional classes change, with incresing degree we observe:
 
 #### Analysis and Reasoning
 
+From the graph plotted we can observe the following:
+- Bias<sup>2</sup> has a local minima around degree *3* and variance gradually increases, and since irreducible error is almost same, we can see that the the toal error, or mean squared error, is the least aound degree *3*.
+- Therefore, the optimal model complexity is a polynomial of degree *3*.
+- This would mean that for degree *1*,*2* the model underfits and from degree *4* onwards, the model overfits.
+- Hence, we can say the the given data approximately forms a 3<sup>rd</sup> degree curve in the 2D Plane.
