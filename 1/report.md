@@ -49,8 +49,8 @@ As functional classes change, with incresing degree we observe:
     - **Note that** just the general trend of bias falling till approximately degree *7* and then increasing is common, while the other details are case dependent.
 - Variance trend:
     - It keeps increasing with some troughs till degree *11*.
-    - Then it oscillates in a range of *5000* till degree *15*.
-    - Then it again increases monotonicalls.
+    - Then it oscillates in a range of *3000* till degree *15*.
+    - Then it again increases monotonically.
     - **Note that** just the general trend of variance rising till approximately degree *13*, not varying for another *3-4* degrees and then increasing is common, while the other details are case dependent.
 
 ## Task 3
