@@ -82,6 +82,19 @@ As functional classes change, with incresing degree we observe:
 
 #### Analysis and Reasoning
 
+Observations:  
+- Running the program several times shows that no general trend is followed by the irreducible error  
+- All the values for the irreducible error are extremly close to each other  
+- Changes in the irreducible error of a particular model after every run is extremly small  
+  
+Conclusions:  
+- The small changes in the irreducible error values are caused by rounding errors  
+- The irreducible error is equal to some value which is the same for all models  
+  
+Reasons:
+- Irreducible errors are errors which can't be removed by any model used for prediction. These errors are caused by unknown variables that are affecting the independent/output variable, i.e. the noise in the data, but are not one of the dependent/input variable while designing the model.
+- Therefore, the irreducible error represents the inherent noise in the data, and hence is irrelevant and independant of the model.
+
 ## Task 4
 
 #### Output Graph
