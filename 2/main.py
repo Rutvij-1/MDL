@@ -7,10 +7,14 @@ POPULATION_SIZE = 8
 GENERATIONS = 7
 MIN = -10.0
 MAX = 10.0
-MUTATION_PROB = 0.2
+MUTATION_PROB = 0.4
 MAX_MUTATE = 1000
 MIN_MUTATE = 10
 ORIGINAL_FITNESS = 381807315968.0
+BEST_FITNESS = 343841643520.0
+BEST_FITNESS_VECTOR = np.array([0.00000000e+00, -1.45799022e-12, -6.45215453e+00, -2.18641775e+00,
+                                -1.75214813e-10, -1.83669770e-15,  8.52944060e-16,  2.29423303e-05,
+                                -2.04721003e-06, -1.59792834e-08,  9.98214034e-10], dtype='float_')
 
 
 def mutate(vector, num=1, prob=MUTATION_PROB):
@@ -73,16 +77,30 @@ if __name__ == "__main__":
     for _ in range(GENERATIONS):
         fitness_array = get_fitness_list(population)
         population, fitness_array = sort_population(population, fitness_array)
+        print(population)
 
         next_gen = population[0:2]
         for __ in range(int(POPULATION_SIZE / 2) - 1):
             parents = select_pair(population, fitness_array)
             child_a, child_b = crossover(parents[0], parents[1])
-            child_a = mutate(child_a)
-            child_b = mutate(child_b)
+            child_a = mutate(child_a, num=3)
+            child_b = mutate(child_b, num=3)
             next_gen += [child_a, child_b]
         population = next_gen.copy()
     fitness_array = get_fitness_list(population)
     population, fitness_array = sort_population(population, fitness_array)
-    print(population[0], sys.maxsize - fitness_array[0])
+    print(population)
+    print(sys.maxsize - fitness_array[0])
+    if (sys.maxsize - fitness_array[0]) < BEST_FITNESS:
+        BEST_FITNESS = sys.maxsize - fitness_array[0]
+        BEST_FITNESS_VECTOR = population[0]
     print(ORIGINAL_FITNESS)
+    print(BEST_FITNESS)
+    first = True
+    for ele in BEST_FITNESS_VECTOR:
+        if first:
+            print(f'[{ele}', end='')
+            first = False
+        else:
+            print(f', {ele}', end='')
+    print(']')
