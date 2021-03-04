@@ -2,105 +2,172 @@ import client
 import numpy as np
 import random
 import sys
+import json
+import math
 
-POPULATION_SIZE = 8
+POPULATION_SIZE = 10
 GENERATIONS = 7
 MIN = -10.0
 MAX = 10.0
-MUTATION_PROB = 0.4
+MUTATION_PROB = 0.5
 MAX_MUTATE = 1000
-MIN_MUTATE = 10
+MIN_MUTATE = 100
 ORIGINAL_FITNESS = 381807315968.0
-BEST_FITNESS = 343841643520.0
-BEST_FITNESS_VECTOR = np.array([0.00000000e+00, -1.45799022e-12, -6.45215453e+00, -2.18641775e+00,
-                                -1.75214813e-10, -1.83669770e-15,  8.52944060e-16,  2.29423303e-05,
-                                -2.04721003e-06, -1.59792834e-08,  9.98214034e-10], dtype='float_')
+MATING_POOL_SIZE = 3
+TRAIN_FACTOR = 0.7
+TEST_FACTOR = 1.0
+POWER_FACTOR = 3
 
 
 def mutate(vector, num=1, prob=MUTATION_PROB):
-    temp_vector = vector.copy()
     for _ in range(num):
-        i = random.randint(0, temp_vector.shape[0]-1)
-        if random.random() <= prob:
-            temp_vector[i] = random.uniform(MIN, MAX)
-    return temp_vector
+        for i in range(len(vector)):
+            if random.random() <= prob:
+                val = random.uniform(0.9, 1.1)
+                val *= vector[i]
+                val = max(val, -10.0)
+                val = min(val, 10.0)
+                vector[i] = val
+    return vector
 
 
-def crossover(a, b):
-    list_a = list(a)
-    list_b = list(b)
-    if len(list_a) != len(list_b) or len(list_a) < 2:
+def single_point_crossover(a, b):
+    if len(a) != len(b) or len(a) < 2:
         return a, b
-    p = random.randint(1, len(list_a)-1)
-    return np.array(list_a[0:p]+list_b[p:], dtype='float_'), np.array(list_b[0:p]+list_a[p:], dtype='float_')
+    p = random.randint(0, len(a)-1)
+    return a[:p]+b[p:], b[:p]+a[p:]
 
 
-def fitness(vector):
+def binary_crossover(a, b, nc=POWER_FACTOR):
+    if len(a) != len(b):
+        return a, b
+    p = random.random()
+    if p <= 0.5:
+        b = (p * 2)**(1.0 / (nc + 1))
+    else:
+        b = (1.0 / ((1.0 - p) * 2))**(1.0 / (nc + 1))
+    na = np.array(a, dtype='float_')
+    nb = np.array(b, dtype='float_')
+    nchild1 = (na * (1 + b) + nb * (1 - b)) * 0.5
+    nchild2 = (na * (1 - b) + nb * (1 + b)) * 0.5
+    return list(nchild1), list(nchild2)
+
+
+def fitness_value(errors):
+    return 1.0 / ((errors[0] * TRAIN_FACTOR) + (errors[1] * TEST_FACTOR))
+
+
+def vector_errors(vector):
     team_id = 'w6zmexNbwRHCKVKxAjTMN7kU4SOsMsoXL5cEAZKoHfvi0F0tvY'
-    errors = client.get_errors(team_id, list(vector))
-    return float(sys.maxsize - errors[0] - errors[1])
+    errors = client.get_errors(team_id, vector)
+    return errors
 
 
 def get_fitness_list(population):
-    return [fitness(vector) for vector in population]
+    return [fitness_value(vector_errors(vector)) for vector in population]
+
+
+def get_error_tuples(population):
+    return [vector_errors(vector).copy() for vector in population]
+
+
+def select_new_population(old_population, fitness_list, k=POPULATION_SIZE):
+    weights = [(100.0 - ((x / sum(fitness_list)) * 100)) for x in fitness_list]
+    return random.choices(population=old_population, weights=weights, k=k)
 
 
 def select_pair(population, fitness_list):
-    return random.choices(population=population, weights=fitness_list, k=2)
+    return select_new_population(population, fitness_list, k=2)
 
 
-def sort_population(population, fitness_list):
+def sort_population(population, fitness_list, error_tuples):
     def fitness_weight(e):
         return fitness_list[e]
     pos = list(range(len(population)))
     pos.sort(key=fitness_weight, reverse=True)
     final_population = population.copy()
     final_fitness = fitness_list
+    final_errors = error_tuples
     for i in range(len(population)):
         final_population[i] = population[pos[i]].copy()
         final_fitness[i] = fitness_list[pos[i]]
-    return final_population, final_fitness
+        final_errors[i] = error_tuples[pos[i]].copy()
+    return final_population, final_fitness, final_errors
 
 
-def populate(vector, size=POPULATION_SIZE):
-    return [vector] + [mutate(vector, num=random.randint(MIN_MUTATE, MAX_MUTATE)) for _ in range(size-1)]
+def populate(size=POPULATION_SIZE):
+    try:
+        coefficients = json.load(open("population.txt", 'r'))
+        population = []
+        best_vector = []
+        min_error = 1.0e+18
+        for vector_str, errors in coefficients.items():
+            vector = [float(x) for x in vector_str.strip('][').split(', ')]
+            if errors[0] + errors[1] < min_error:
+                min_error = errors[0] + errors[1]
+                best_vector = vector.copy()
+            population.append(vector)
+            if len(population) >= size:
+                break
+        while len(population) < size:
+            population.append(
+                mutate(best_vector.copy(), num=random.randint(MIN_MUTATE, MAX_MUTATE), prob=1.0))
+        return population
+    except IOError:
+        overfit_vector = [float(x) for x in open(r"overfit.txt",
+                                                 "r").read().strip('[]\n').split(', ')]
+        population = []
+        population.append(overfit_vector)
+        while len(population) < size:
+            population.append(
+                mutate(overfit_vector.copy(), num=random.randint(MIN_MUTATE, MAX_MUTATE), prob=1.0))
+        return population
 
 
-def get_overfit_vector():
-    overfit_vector_file = open(r"overfit.txt", "r")
-    for line in overfit_vector_file:
-        return np.array(line[1:-2].split(', '), dtype='float_')
+def get_coefficients(population, error_tuples):
+    coefficients = {}
+    for i in range(len(population)):
+        coefficients[str(population[i])] = error_tuples[i]
+    return coefficients
+
+
+def get_next_gen(population, fitness_array, pool_size=MATING_POOL_SIZE):
+    parents = population[:pool_size]
+    next_gen = parents.copy()
+    for _ in range(math.ceil((POPULATION_SIZE - pool_size) / 2)):
+        children = select_pair(parents, fitness_array[:pool_size])
+        children[0], children[1] = single_point_crossover(
+            children[0], children[1])
+        children[0] = mutate(children[0])
+        children[1] = mutate(children[1])
+        next_gen += children.copy()
+    if len(next_gen) > POPULATION_SIZE:
+        next_gen = next_gen[:POPULATION_SIZE]
+    return next_gen
 
 
 if __name__ == "__main__":
-    population = populate(get_overfit_vector())
+    population = populate()
     for _ in range(GENERATIONS):
-        fitness_array = get_fitness_list(population)
-        population, fitness_array = sort_population(population, fitness_array)
-        print(population)
-
-        next_gen = population[0:2]
-        for __ in range(int(POPULATION_SIZE / 2) - 1):
-            parents = select_pair(population, fitness_array)
-            child_a, child_b = crossover(parents[0], parents[1])
-            child_a = mutate(child_a, num=3)
-            child_b = mutate(child_b, num=3)
-            next_gen += [child_a, child_b]
-        population = next_gen.copy()
-    fitness_array = get_fitness_list(population)
-    population, fitness_array = sort_population(population, fitness_array)
-    print(population)
-    print(sys.maxsize - fitness_array[0])
-    if (sys.maxsize - fitness_array[0]) < BEST_FITNESS:
-        BEST_FITNESS = sys.maxsize - fitness_array[0]
-        BEST_FITNESS_VECTOR = population[0]
-    print(ORIGINAL_FITNESS)
-    print(BEST_FITNESS)
-    first = True
-    for ele in BEST_FITNESS_VECTOR:
-        if first:
-            print(f'[{ele}', end='')
-            first = False
-        else:
-            print(f', {ele}', end='')
-    print(']')
+        error_tuples = get_error_tuples(population)
+        fitness_array = [fitness_value(error) for error in error_tuples]
+        population, fitness_array, error_tuples = sort_population(
+            population, fitness_array, error_tuples)
+        print("Generation ", _, ":")
+        for vector, error in get_coefficients(population, error_tuples).items():
+            print(vector, " : ", error)
+        print("Best = ", error_tuples[0][0]+error_tuples[0]
+              [1], " => ", str(population[0]), error_tuples[0])
+        print('')
+        population = get_next_gen(population, fitness_array)
+    error_tuples = get_error_tuples(population)
+    fitness_array = [fitness_value(error) for error in error_tuples]
+    population, fitness_array, error_tuples = sort_population(
+        population, fitness_array, error_tuples)
+    print("Generation ", GENERATIONS, ":")
+    for vector, error in get_coefficients(population, error_tuples).items():
+        print(vector, " : ", error)
+    print("Final Best = ", error_tuples[0][0]+error_tuples[0]
+          [1], " => ", str(population[0]), error_tuples[0])
+    json.dump(get_coefficients(population, error_tuples),
+              open("population.txt", 'w'))
