@@ -6,15 +6,16 @@ import json
 import math
 
 POPULATION_SIZE = 10
-GENERATIONS = 7
+GENERATIONS = 8
 MIN = -10.0
 MAX = 10.0
 MUTATION_PROB = 0.5
 MAX_MUTATE = 1000
 MIN_MUTATE = 100
 ORIGINAL_FITNESS = 381807315968.0
-MATING_POOL_SIZE = 3
-TRAIN_FACTOR = 0.7
+MATING_POOL_SIZE = 2
+BEST_PARENTS = 4
+TRAIN_FACTOR = 1.0
 TEST_FACTOR = 1.0
 POWER_FACTOR = 3
 
@@ -100,28 +101,37 @@ def populate(size=POPULATION_SIZE):
         coefficients = json.load(open("population.txt", 'r'))
         population = []
         best_vector = []
+        error_tuples = []
         min_error = 1.0e+18
+        flag = False
         for vector_str, errors in coefficients.items():
             vector = [float(x) for x in vector_str.strip('][').split(', ')]
             if errors[0] + errors[1] < min_error:
                 min_error = errors[0] + errors[1]
                 best_vector = vector.copy()
             population.append(vector)
+            if len(errors) == 2:
+                error_tuples.append(errors)
+            else:
+                error_tuples.append([1e41, 1e41])
             if len(population) >= size:
                 break
         while len(population) < size:
             population.append(
                 mutate(best_vector.copy(), num=random.randint(MIN_MUTATE, MAX_MUTATE), prob=1.0))
-        return population
+            error_tuples.append([1e41, 1e41])
+            flag = True
+        return population, error_tuples, flag
     except IOError:
         overfit_vector = [float(x) for x in open(r"overfit.txt",
                                                  "r").read().strip('[]\n').split(', ')]
         population = []
+        error_tuples = [[1e41, 1e41] for _ in range(size)]
         population.append(overfit_vector)
         while len(population) < size:
             population.append(
                 mutate(overfit_vector.copy(), num=random.randint(MIN_MUTATE, MAX_MUTATE), prob=1.0))
-        return population
+        return population, error_tuples, True
 
 
 def get_coefficients(population, error_tuples):
@@ -131,11 +141,12 @@ def get_coefficients(population, error_tuples):
     return coefficients
 
 
-def get_next_gen(population, fitness_array, pool_size=MATING_POOL_SIZE):
-    parents = population[:pool_size]
+def get_next_gen(population, fitness_array, pool_size=MATING_POOL_SIZE, no_of_parents=BEST_PARENTS):
+    parents = population[:no_of_parents]
     next_gen = parents.copy()
     for _ in range(math.ceil((POPULATION_SIZE - pool_size) / 2)):
-        children = select_pair(parents, fitness_array[:pool_size])
+        children = select_pair(
+            population[:pool_size], fitness_array[:pool_size])
         children[0], children[1] = single_point_crossover(
             children[0], children[1])
         children[0] = mutate(children[0])
@@ -147,9 +158,12 @@ def get_next_gen(population, fitness_array, pool_size=MATING_POOL_SIZE):
 
 
 if __name__ == "__main__":
-    population = populate()
+    population, error_tuples, flag = populate()
     for _ in range(GENERATIONS):
-        error_tuples = get_error_tuples(population)
+        if flag:
+            GENERATIONS -= 1
+            error_tuples = get_error_tuples(population)
+        flag = True
         fitness_array = [fitness_value(error) for error in error_tuples]
         population, fitness_array, error_tuples = sort_population(
             population, fitness_array, error_tuples)
