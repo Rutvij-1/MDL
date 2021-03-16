@@ -1,0 +1,107 @@
+     Team number                 Team name
+0              4                       DH 
+1             48                       no2
+2             31               MDL_project
+3             28                   TeamXYZ
+4             15                     Oh Bc
+5             68                   Team 30
+6             49      Rage Against the SVM
+7             90                    AG-VVV
+8             71                     yeeML
+9             53                   team 83
+10            85                 null zero
+11           104                   Dhoom 4
+12            12                   \_'o'_/
+13            55                    Roomba
+14             8              SigmoidSquad
+15            37     Artificial Brilliance
+16           101     WhyDoYouNeedATeamName
+17             6    Bharatiya Janata Party
+18            21                      Damn
+19            82     Don't worry about it 
+20            63  Drowning in Inefficiency
+21            89     import sklearn as MDL
+22            16                L-learning
+23            26               BrAIn Power
+24            67                 ML Ninjas
+25            64                Adrenaline
+26            70               np.random()
+27            25                 Sentinels
+28            47           Jet Brains Mono
+29            27                   Room543
+30            91                    Benito
+31            40                    Enigma
+32            11                    LetsAI
+33            62                  Scatter 
+34            86     Genetic Algorithms :(
+35           112                  MDL-GA-3
+36             2                         X
+37            56              Domino Power
+38            24                    Team75
+39            97            Cursed doublet
+40            54           SendBobstoAlice
+41           109                        RP
+42            22             Teach amigos 
+43            46                    Team V
+44            58            Krishna-sudama
+45           102                    DeusEx
+46            84                  ML team 
+47            51                     Gengo
+48            36               MaDrasiLand
+49            32        Learn_from_scratch
+50           108                    Hustle
+51            10                      UnMA
+52            23        jainetic algorithm
+53            75          Bros before hoes
+54            76              Crispy Genes
+55            61     ML chorro DASS krenge
+56            43                   Mongols
+57            95               Team Rocket
+58            81              Genetic Algo
+59            94          Machine warriors
+60            17                   Kuch bi
+61            98                       501
+62            18                 Team Name
+63            19              Confused_duo
+64           100       A Team with No Name
+65            72              Coding Folks
+66            80           Team California
+67            59                       MDL
+68            73         Ohm Namah Shivaay
+69           103         Anuvamshik yodhas
+70            14                Trektation
+71            45                    Shadow
+72            34            Bruhfessionals
+73            29                    Svipoo
+74            74                      lmao
+75            50  LearningMachinesFromData
+76             5                trees.love
+77            39                   Moodles
+78            83                        PK
+79            30                   Tribrid
+80           105                       Meh
+81            41                Team Name2
+82            60                  Bad Juju
+83            66                   Genesis
+84            88            Platypus_Perry
+85            38                 GENTOOmen
+86           110                  MDL-GA-1
+87           114                  MDL-GA-5
+88             9            Kasauli TIgers
+89            77           Matrix Monarchs
+90            78        Machines, learning
+91            44                    YogiJi
+92            69                    CRISPR
+93           107                     MDLA2
+94            99                    RAFAEL
+95            20                   All you
+96            93                    Team67
+97            33            Responsibility
+98            42                       Tom
+99            65           Salt and Pepper
+100           92                   MaDLads
+101           57             Hakuna Matata
+102           96                 Team AKPK
+103           87                  The Team
+104            1                    SAD!/2
+
