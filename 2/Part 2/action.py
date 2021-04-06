@@ -1,5 +1,5 @@
 import numpy as np
-from part_2 import step_cost, MM_attack_reward, MM_dead_reward, shoot_hp, hit_hp, regain_hp
+from config import *
 
 
 def get_actions(pos, mat, arrow, state, health):
@@ -283,10 +283,9 @@ def get_actions(pos, mat, arrow, state, health):
                     "reward": step_cost
                 }
             ]
-            if health <= shoot_hp:
+            if health <= hit_hp:
                 actions["HIT"][1]["reward"] += MM_dead_reward
     if pos == "W":
-        # actions += ["STAY", "RIGHT", "SHOOT"]
         if state == "D":
             actions["STAY"] = [
                 {
@@ -341,6 +340,132 @@ def get_actions(pos, mat, arrow, state, health):
             actions["STAY"] = [
                 {
                     "probability": 0.5,
+                    "state": (pos, mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.5,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["RIGHT"] = [
+                {
+                    "probability": 0.5,
+                    "state": ("C", mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.5,
+                    "state": ("C", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["SHOOT"] = [
+                {
+                    "probability": 0.375,
+                    "state": (pos, mat, arrow-1, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.375,
+                    "state": (pos, mat, arrow-1, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.125,
+                    "state": (pos, mat, arrow-1, "D", max(0, health-25)),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.,
+                    "state": (pos, mat, arrow-1, state, max(0, health-25)),
+                    "reward": step_cost
+                }
+            ]
+            if health <= shoot_hp:
+                actions["SHOOT"][2]["reward"] += MM_dead_reward
+                actions["SHOOT"][3]["reward"] += MM_dead_reward
+    if pos == "E":
+        if state == "D":
+            actions["STAY"] = [
+                {
+                    "probability": 0.2,
+                    "state": (pos, mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.8,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["LEFT"] = [
+                {
+                    "probability": 0.2,
+                    "state": ("C", mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.8,
+                    "state": ("C", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["SHOOT"] = [
+                {
+                    "probability": 0.02,
+                    "state": (pos, mat, arrow-1, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.08,
+                    "state": (pos, mat, arrow-1, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.18,
+                    "state": (pos, mat, arrow-1, "R", max(0, health-25)),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.72,
+                    "state": (pos, mat, arrow-1, state, max(0, health-25)),
+                    "reward": step_cost
+                }
+            ]
+            if health <= shoot_hp:
+                actions["SHOOT"][2]["reward"] += MM_dead_reward
+                actions["SHOOT"][3]["reward"] += MM_dead_reward
+            actions["HIT"] = [
+                {
+                    "probability": 0.16,
+                    "state": (pos, mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.64,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.04,
+                    "state": (pos, mat, arrow, "R", max(0, health-50)),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.14,
+                    "state": (pos, mat, arrow, state, max(0, health-50)),
+                    "reward": step_cost
+                }
+            ]
+            if health <= hit_hp:
+                actions["HIT"][2]["reward"] += MM_dead_reward
+                actions["HIT"][3]["reward"] += MM_dead_reward
+        else:
+            actions["STAY"] = [
+                {
+                    "probability": 0.5,
                     "state": (pos, mat, 0, "D", health+regain_hp),
                     "reward": step_cost + MM_attack_reward
                 },
@@ -350,7 +475,7 @@ def get_actions(pos, mat, arrow, state, health):
                     "reward": step_cost
                 }
             ]
-            actions["RIGHT"] = [
+            actions["LEFT"] = [
                 {
                     "probability": 0.5,
                     "state": (pos, mat, 0, "D", health+regain_hp),
@@ -369,21 +494,331 @@ def get_actions(pos, mat, arrow, state, health):
                     "reward": step_cost + MM_attack_reward
                 },
                 {
-                    "probability": 0.125,
+                    "probability": 0.45,
                     "state": (pos, mat, arrow-1, state, max(0, health-25)),
                     "reward": step_cost
                 },
                 {
-                    "probability": 0.375,
+                    "probability": 0.05,
                     "state": (pos, mat, arrow-1, state, health),
                     "reward": step_cost
                 }
             ]
             if health <= shoot_hp:
                 actions["SHOOT"][1]["reward"] += MM_dead_reward
-    # if pos == "E":
-    #     actions += ["STAY", "LEFT", "SHOOT", "HIT"]
-    # if pos == "N":
-    #     actions += ["STAY", "DOWN", "CRAFT"]
-    # if pos == "S":
-    #     actions += ["STAY", "DOWN", "GATHER"]
+            actions["HIT"] = [
+                {
+                    "probability": 0.5,
+                    "state": (pos, mat, 0, "D", health+regain_hp),
+                    "reward": step_cost + MM_attack_reward
+                },
+                {
+                    "probability": 0.1,
+                    "state": (pos, mat, arrow, state, max(0, health-50)),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.4,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            if health <= hit_hp:
+                actions["HIT"][1]["reward"] += MM_dead_reward
+    if pos == "N":
+        if state == "D":
+            actions["STAY"] = [
+                {
+                    "probability": 0.17,
+                    "state": (pos, mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.68,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.03,
+                    "state": ("E", mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.12,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["DOWN"] = [
+                {
+                    "probability": 0.17,
+                    "state": ("C", mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.68,
+                    "state": ("C", mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.03,
+                    "state": ("E", mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.12,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            if mat > 0:
+                actions["CRAFT"] = [
+                    {
+                        "probability": 0.1,
+                        "state": (pos, mat-1, min(arrow+1, accepted_arrows[-1]), "R", health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.4,
+                        "state": (pos, mat-1, min(arrow+1, accepted_arrows[-1]), state, health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.07,
+                        "state": (pos, mat-1, min(arrow+2, accepted_arrows[-1]), "R", health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.28,
+                        "state": (pos, mat-1, min(arrow+2, accepted_arrows[-1]), state, health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.03,
+                        "state": (pos, mat-1, min(arrow+3, accepted_arrows[-1]), "R", health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.12,
+                        "state": (pos, mat-1, min(arrow+3, accepted_arrows[-1]), state, health),
+                        "reward": step_cost
+                    }
+                ]
+            else:
+                actions["CRAFT"] = []
+        else:
+            actions["STAY"] = [
+                {
+                    "probability": 0.425,
+                    "state": (pos, mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.425,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["DOWN"] = [
+                {
+                    "probability": 0.425,
+                    "state": ("C", mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.425,
+                    "state": ("C", mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            if mat > 0:
+                actions["CRAFT"] = [
+                    {
+                        "probability": 0.25,
+                        "state": (pos, mat-1, min(arrow+1, accepted_arrows[-1]), "D", health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.25,
+                        "state": (pos, mat-1, min(arrow+1, accepted_arrows[-1]), state, health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.175,
+                        "state": (pos, mat-1, min(arrow+2, accepted_arrows[-1]), "D", health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.175,
+                        "state": (pos, mat-1, min(arrow+2, accepted_arrows[-1]), state, health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.075,
+                        "state": (pos, mat-1, min(arrow+3, accepted_arrows[-1]), "D", health),
+                        "reward": step_cost
+                    },
+                    {
+                        "probability": 0.075,
+                        "state": (pos, mat-1, min(arrow+3, accepted_arrows[-1]), state, health),
+                        "reward": step_cost
+                    }
+                ]
+            else:
+                actions["CRAFT"] = []
+    if pos == "S":
+        #     actions += ["STAY", "DOWN", "GATHER"]
+        if state == "D":
+            actions["STAY"] = [
+                {
+                    "probability": 0.17,
+                    "state": (pos, mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.68,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.03,
+                    "state": ("E", mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.12,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["UP"] = [
+                {
+                    "probability": 0.17,
+                    "state": ("C", mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.68,
+                    "state": ("C", mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.03,
+                    "state": ("E", mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.12,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["GATHER"] = [
+                {
+                    "probability": 0.15,
+                    "state": (pos, min(mat+1, accepted_materials[-1]), arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.6,
+                    "state": (pos, min(mat+1, accepted_materials[-1]), arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.05,
+                    "state": (pos, mat, arrow, "R", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.2,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                },
+            ]
+        else:
+            actions["STAY"] = [
+                {
+                    "probability": 0.425,
+                    "state": (pos, mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.425,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["UP"] = [
+                {
+                    "probability": 0.425,
+                    "state": ("C", mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.425,
+                    "state": ("C", mat, arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.075,
+                    "state": ("E", mat, arrow, state, health),
+                    "reward": step_cost
+                }
+            ]
+            actions["GATHER"] = [
+                {
+                    "probability": 0.375,
+                    "state": (pos, min(mat+1, accepted_materials[-1]), arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.375,
+                    "state": (pos, min(mat+1, accepted_materials[-1]), arrow, state, health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.125,
+                    "state": (pos, mat, arrow, "D", health),
+                    "reward": step_cost
+                },
+                {
+                    "probability": 0.125,
+                    "state": (pos, mat, arrow, state, health),
+                    "reward": step_cost
+                },
+            ]
