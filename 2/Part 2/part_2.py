@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 from part_2_action import get_actions
 from part_2_config import *
 
@@ -162,12 +163,15 @@ if __name__ == "__main__":
     for state in states:
         state.set_actions()
 
-    # Trace output
-    value_iteration()
+    iteration_file = "./outputs/part_2_trace.txt"
+    with open(iteration_file, "w+") as f:
+        sys.stdout = f
+        value_iteration()
 
-    # # Simulation output
-    # value_iteration(trace=False)
-    # for state_tuple in start_state_tuples:
-    #     print("START OF SIMULATION".center(25, "-")+"\n\n\n")
-    #     simulate(find_state(state_tuple))
-    #     print("\n\n\n"+"END OF SIMULATION".center(25, "-")+"\n\n\n")
+    simulation_file = "./outputs/part_2_simulation.txt"
+    with open(simulation_file, "w+") as f:
+        sys.stdout = f
+        for state_tuple in start_state_tuples:
+            print("START OF SIMULATION".center(25, "-")+"\n\n\n")
+            simulate(find_state(state_tuple))
+            print("\n\n\n"+"END OF SIMULATION".center(25, "-")+"\n\n\n")
