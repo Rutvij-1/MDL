@@ -6,80 +6,20 @@ Start State: (W,0,0,D,100)
 
 From state(W, 0, 0, D, 100) IJ performed the action "RIGHT", and entered the state (C, 0, 0, D, 100). MM stayed in dormant state.   
 From state(C, 0, 0, D, 100) IJ performed the action "RIGHT", and entered the state (E, 0, 0, D, 100). MM stayed in dormant state.   
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
 From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM stayed in dormant state.   
+From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM stayed in dormant state.   
 From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 50). MM entered in ready state.    
 From state(E, 0, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 75). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 75) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 75). MM entered in ready state.    
-From state(E, 0, 0, R, 75) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 75). MM stayed in ready state.     
-From state(E, 0, 0, R, 75) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM entered in ready state.    
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 100). MM stayed in ready state.     
-From state(E, 0, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM stayed in dormant state.   
-From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 50). MM entered in ready state.    
-From state(E, 0, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 50). MM stayed in ready state.     
-From state(E, 0, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 50). MM stayed in ready state.     
-From state(E, 0, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 50). MM stayed in ready state.     
-From state(E, 0, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 75). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 75) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 75). MM entered in ready state.    
-From state(E, 0, 0, R, 75) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 0, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM stayed in dormant state.   
-From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 50). MM entered in ready state.    
-From state(E, 0, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 75). MM successfully attacked IJ.  
+From state(E, 0, 0, D, 75) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 75). MM stayed in dormant state.   
 From state(E, 0, 0, D, 75) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 25). MM stayed in dormant state.   
+From state(E, 0, 0, D, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 25). MM stayed in dormant state.   
 From state(E, 0, 0, D, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 25). MM entered in ready state.    
+From state(E, 0, 0, R, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 25). MM stayed in ready state.     
+From state(E, 0, 0, R, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 25). MM stayed in ready state.     
 From state(E, 0, 0, R, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM successfully attacked IJ.  
 From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 0). MM stayed in dormant state.   
 
-IJ defeated MM in 74 time steps.
+IJ defeated MM in 14 time steps.
 
 
 
@@ -93,68 +33,27 @@ IJ defeated MM in 74 time steps.
 
 Start State: (C,2,0,R,100)
 
-From state(C, 2, 0, R, 100) IJ performed the action "UP", and entered the state (C, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(C, 2, 0, D, 100) IJ performed the action "RIGHT", and entered the state (E, 2, 0, D, 100). MM stayed in dormant state.   
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 50). MM stayed in dormant state.   
-From state(E, 2, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 50). MM entered in ready state.    
-From state(E, 2, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 50). MM stayed in ready state.     
-From state(E, 2, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 50). MM stayed in ready state.     
-From state(E, 2, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 50). MM stayed in ready state.     
-From state(E, 2, 0, R, 50) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 75). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 75) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 75). MM entered in ready state.    
-From state(E, 2, 0, R, 75) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM entered in ready state.    
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, R, 100). MM stayed in ready state.     
-From state(E, 2, 0, R, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 100). MM successfully attacked IJ.  
-From state(E, 2, 0, D, 100) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 50). MM stayed in dormant state.   
-From state(E, 2, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 2, 0, D, 0). MM stayed in dormant state.   
+From state(C, 2, 0, R, 100) IJ performed the action "UP", and entered the state (N, 2, 0, R, 100). MM stayed in ready state.     
+From state(N, 2, 0, R, 100) IJ performed the action "CRAFT", and entered the state (N, 1, 1, R, 100). MM stayed in ready state.     
+From state(N, 1, 1, R, 100) IJ performed the action "CRAFT", and entered the state (N, 0, 3, R, 100). MM stayed in ready state.     
+From state(N, 0, 3, R, 100) IJ performed the action "STAY", and entered the state (N, 0, 3, D, 100). MM attacked IJ and failed.    
+From state(N, 0, 3, D, 100) IJ performed the action "DOWN", and entered the state (E, 0, 3, D, 100). MM stayed in dormant state.   
+From state(E, 0, 3, D, 100) IJ performed the action "SHOOT", and entered the state (E, 0, 2, D, 75). MM stayed in dormant state.   
+From state(E, 0, 2, D, 75) IJ performed the action "SHOOT", and entered the state (E, 0, 1, D, 50). MM stayed in dormant state.   
+From state(E, 0, 1, D, 50) IJ performed the action "SHOOT", and entered the state (E, 0, 0, D, 25). MM stayed in dormant state.   
+From state(E, 0, 0, D, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 25). MM stayed in dormant state.   
+From state(E, 0, 0, D, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 25). MM stayed in dormant state.   
+From state(E, 0, 0, D, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 25). MM entered in ready state.    
+From state(E, 0, 0, R, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 25). MM stayed in ready state.     
+From state(E, 0, 0, R, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 25). MM stayed in ready state.     
+From state(E, 0, 0, R, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, R, 25). MM stayed in ready state.     
+From state(E, 0, 0, R, 25) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM successfully attacked IJ.  
+From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM stayed in dormant state.   
+From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM stayed in dormant state.   
+From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 50). MM stayed in dormant state.   
+From state(E, 0, 0, D, 50) IJ performed the action "HIT", and entered the state (E, 0, 0, D, 0). MM stayed in dormant state.   
 
-IJ defeated MM in 60 time steps.
+IJ defeated MM in 19 time steps.
 
 
 

@@ -118,7 +118,7 @@ def random(choices, weights):
     p = np.random.rand(1)[0]
     l = len(choices)
     for i in range(l):
-        if normalized_weights[i] <= p:
+        if normalized_weights[i] > p:
             return choices[i]
         p -= normalized_weights[i]
     return choices[-1]
