@@ -17,7 +17,9 @@ accepted_states = ["D", "R"]
 accepted_health = [0, 25, 50, 75, 100]
 accepted_actions = ["UP", "LEFT", "DOWN", "RIGHT", "STAY",
                     "SHOOT", "HIT", "CRAFT", "GATHER", "NONE"]
-
-start_state_tuples = [("W", 0, 0, "D", 100), ("C", 2, 0, "R", 100)]
+TOTAL_STATES = len(accepted_positions) * len(accepted_materials) * \
+    len(accepted_arrows) * len(accepted_states) * len(accepted_health)
 
 E_left_dest = "C"
+
+start_state_tuple = ("C", 2, 3, "R", 100)
