@@ -64,6 +64,14 @@ def pe(e, s):
         return pt[y][1]
 
 
+def truncate(f, n=4):
+    s = '{}'.format(f)
+    if 'e' in s or 'E' in s:
+        return '{0:.{1}f}'.format(f, n)
+    i, pnt, d = s.partition('.')
+    return '.'.join([i, (d+'0'*n)[:n]])
+
+
 if __name__ == "__main__":
     print(rno, other_rno)
     print(x, y+1)
@@ -77,5 +85,5 @@ if __name__ == "__main__":
         val = sum(next_b)
         b = [m / val for m in next_b]
         for m in b:
-            print("{:.4f}".format(m), end=" ")
+            print(truncate(m), end=" ")
         print("")
