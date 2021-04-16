@@ -93,7 +93,7 @@ P(S6|S6,Right)b(s) = 0.87 \mul 0.3333333333333333 = 0.29
 P(Green,S6) = 0.050000000000000044
 Therefore, the observed state value b'(S6) = 0.014500000000000011
 
-Therefore, the normalizing factor is 0.5499999999999998
+Therefore, the normalizing factor is 1.8181818181818188
 Hence, The new belief state b'=<0.003939393939393945, 0.484848484848485, 0.0, 0.4218181818181819, 0.06303030303030306, 0.02636363636363639>
 And now we assign b = b'
 
@@ -167,7 +167,7 @@ P(S6|S6,Left)b(s) = 0.13 \mul 0.02636363636363639 = 0.003427272727272731
 P(Red,S6) = 0.95
 Therefore, the observed state value b'(S6) = 0.011040151515151522
 
-Therefore, the normalizing factor is 0.850159090909091
+Therefore, the normalizing factor is 1.1762504344106717
 Hence, The new belief state b'=<0.47518539310824176, 0.00012047655964569925, 0.48051184715873146, 0.01290025930975486, 0.018296040847969635, 0.012985983015656613>
 And now we assign b = b'
 
@@ -241,7 +241,7 @@ P(S6|S6,Left)b(s) = 0.13 \mul 0.012985983015656613 = 0.0016881777920353597
 P(Green,S6) = 0.050000000000000044
 Therefore, the observed state value b'(S6) = 0.00020333315511357082
 
-Therefore, the normalizing factor is 0.4783837570508195
+Therefore, the normalizing factor is 2.090371977018794
 Hence, The new belief state b'=<0.04322012406528405, 0.8024008358313819, 0.001174672779603463, 0.1310815336232945, 0.021697791770987823, 0.00042504192944822414>
 And now we assign b = b'
 

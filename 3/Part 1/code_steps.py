@@ -131,7 +131,7 @@ if __name__ == "__main__":
         val = sum(next_b)
         b = [m / val for m in next_b]
         bs.append([i+1]+copy.deepcopy(b))
-        print(f"Therefore, the normalizing factor is {val}")
+        print(f"Therefore, the normalizing factor is {1.0 / val}")
         print(f"Hence, The new belief state b'=<{b[0]}", end="")
         for j in range(1, l):
             print(",", b[j], end="")
