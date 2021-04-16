@@ -116,16 +116,18 @@ if __name__ == "__main__":
                 next_b[j] += p(j, k, a) * b[k]
                 if a == "L":
                     print(
-                        f"P(S{j+1}|S{k+1},Left)b(s) = {p(j, k, a)} \\mul {b[k]} = {next_b[j]}")
+                        f"P(S{j+1}|S{k+1},Left)b(s) = {p(j, k, a)} \\mul {b[k]} = {p(j, k, a) * b[k]}")
                 else:
                     print(
-                        f"P(S{j+1}|S{k+1},Right)b(s) = {p(j, k, a)} \\mul {b[k]} = {next_b[j]}")
+                        f"P(S{j+1}|S{k+1},Right)b(s) = {p(j, k, a)} \\mul {b[k]} = {p(j, k, a) * b[k]}")
+            print(f"\\sigma(for all s)(P(s'|s,a)b(s)) = {next_b[j]}")
             next_b[j] *= pe(percept[i], j)
             if percept[i] == "G":
                 print(f"P(Green,S{j+1}) = {pe(percept[i], j)}")
             else:
                 print(f"P(Red,S{j+1}) = {pe(percept[i], j)}")
-            print(f"Therefore, b'(S{j+1}) = {next_b[j]}", end="\n\n")
+            print(
+                f"Therefore, the observed state value b'(S{j+1}) = {next_b[j]}", end="\n\n")
         val = sum(next_b)
         b = [m / val for m in next_b]
         bs.append([i+1]+copy.deepcopy(b))
