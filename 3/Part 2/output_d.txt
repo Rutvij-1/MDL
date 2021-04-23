@@ -1,16 +1,56 @@
-S00010 0.05
-S00011 0.05
-S00020 0.05
-S00021 0.05
-S00110 0.05
-S00111 0.05
-S00120 0.05
-S00121 0.05
-S13010 0.075
-S13011 0.075
-S13020 0.075
-S13021 0.075
-S13110 0.075
-S13111 0.075
-S13120 0.075
-S13121 0.075
+S_00_01_0 0.05
+S_00_01_1 0.05
+S_00_02_0 0.05
+S_00_02_1 0.05
+S_00_11_0 0.05
+S_00_11_1 0.05
+S_00_12_0 0.05
+S_00_12_1 0.05
+S_13_01_0 0.075
+S_13_01_1 0.075
+S_13_02_0 0.075
+S_13_02_1 0.075
+S_13_11_0 0.075
+S_13_11_1 0.075
+S_13_12_0 0.075
+S_13_12_1 0.075
+call is 0, S_00_00_1 Actions.STAY
+call is 0, S_00_00_1 Actions.UP
+call is 0, S_00_00_1 Actions.DOWN
+call is 0, S_00_00_1 Actions.LEFT
+call is 0, S_00_00_1 Actions.RIGHT
+call is 0, S_01_01_1 Actions.STAY
+call is 0, S_01_01_1 Actions.UP
+call is 0, S_01_01_1 Actions.DOWN
+call is 0, S_01_01_1 Actions.LEFT
+call is 0, S_01_01_1 Actions.RIGHT
+call is 0, S_02_02_1 Actions.STAY
+call is 0, S_02_02_1 Actions.UP
+call is 0, S_02_02_1 Actions.DOWN
+call is 0, S_02_02_1 Actions.LEFT
+call is 0, S_02_02_1 Actions.RIGHT
+call is 0, S_03_03_1 Actions.STAY
+call is 0, S_03_03_1 Actions.UP
+call is 0, S_03_03_1 Actions.DOWN
+call is 0, S_03_03_1 Actions.LEFT
+call is 0, S_03_03_1 Actions.RIGHT
+call is 0, S_10_10_1 Actions.STAY
+call is 0, S_10_10_1 Actions.UP
+call is 0, S_10_10_1 Actions.DOWN
+call is 0, S_10_10_1 Actions.LEFT
+call is 0, S_10_10_1 Actions.RIGHT
+call is 0, S_11_11_1 Actions.STAY
+call is 0, S_11_11_1 Actions.UP
+call is 0, S_11_11_1 Actions.DOWN
+call is 0, S_11_11_1 Actions.LEFT
+call is 0, S_11_11_1 Actions.RIGHT
+call is 0, S_12_12_1 Actions.STAY
+call is 0, S_12_12_1 Actions.UP
+call is 0, S_12_12_1 Actions.DOWN
+call is 0, S_12_12_1 Actions.LEFT
+call is 0, S_12_12_1 Actions.RIGHT
+call is 0, S_13_13_1 Actions.STAY
+call is 0, S_13_13_1 Actions.UP
+call is 0, S_13_13_1 Actions.DOWN
+call is 0, S_13_13_1 Actions.LEFT
+call is 0, S_13_13_1 Actions.RIGHT

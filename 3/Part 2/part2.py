@@ -19,7 +19,7 @@ class State:
         return idx
 
     def __str__(self):
-        return f"S{self.a_row}{self.a_col}{self.t_row}{self.t_col}{self.call}"
+        return f"S_{self.a_row}{self.a_col}_{self.t_row}{self.t_col}_{self.call}"
 
     def get_a_pos(self):
         return self.a_col, self.a_row
@@ -156,6 +156,7 @@ class POMDP:
                 next_state.call = 0
                 final_results.append((pr * 0.1, next_state))
         elif state.call == 1 and (state.a_row, state.a_col) == (state.t_row, state.t_col):
+            print("call is 0,", state, action)
             for pr, st in filter_movements:
                 # CALL IS OFF
                 next_state = deepcopy(st)
@@ -208,16 +209,18 @@ class POMDP:
     def reward_table(self):
         results = []
         for obs in range(len(Observations)):
-            for state in self.states:
+            for st in self.states:
                 curr_obs = Observations(obs)
-                if curr_obs == Observations.o1 and state.call == 1:
-                    results.append((curr_obs, reeward, state))
+                if curr_obs == Observations.o1 and st.call == 1 and (st.a_row, st.a_col) == (st.t_row, st.t_col):
+                    results.append((curr_obs, reeward - 1, st))
                 else:
                     pass
-        for state in self.states:
-            print(f"R : * : * : {str(state)}: * -1", file=f)
-        for obs, reward, state in results:
-            print(f"R : * : * : {str(state)}: {obs.name} {reward}", file=f)
+        print(f"R : * : * : * : * -1", file=f)
+        print(f"R : STAY : * : * : * 0", file=f)
+        for obs, reward, st in results:
+            print(f"R : * : * : {str(st)}: {obs.name} {reeward - 1}", file=f)
+        for obs, reward, st in results:
+            print(f"R : STAY : * : {str(st)}: {obs.name} {reeward}", file=f)
 
 
 if __name__ == "__main__":
@@ -260,8 +263,9 @@ if __name__ == "__main__":
     print(file=f)
     print("start: ", file=f)
     count = 0
+
     if int(sys.argv[2]) == 1:
-        # QUESTION 1
+        # q1
         for state in states:
             pos = (state.t_row, state.t_col)
             a_pos = (state.a_row, state.a_col)
@@ -273,13 +277,13 @@ if __name__ == "__main__":
             pos = (state.t_row, state.t_col)
             a_pos = (state.a_row, state.a_col)
             if pos == (1, 0) and not (a_pos == (0, 0) or a_pos == (1, 1) or a_pos == (1, 0)):
-                print(state, 1/count)
+                print(state, 1 / count)
                 print(1 / count, end=" ", file=f)
             else:
                 print(state, 0)
                 print(0, end=" ", file=f)
     elif int(sys.argv[2]) == 2:
-        # QUESTION 2
+        # q2
         for state in states:
             pos = (state.t_row, state.t_col)
             a_pos = (state.a_row, state.a_col)
@@ -290,14 +294,15 @@ if __name__ == "__main__":
         for state in states:
             pos = (state.t_row, state.t_col)
             a_pos = (state.a_row, state.a_col)
-            if a_pos != (1, 1) or pos != (1, 0) and pos != (0, 1) and pos != (1, 2) and pos != (1, 1) or state.call != 0:
-                print(state, 0)
-                print(0, end=" ", file=f)
-            else:
+            if a_pos == (1, 1) and (pos == (1, 0) or pos == (0, 1) or pos == (1, 2) or pos == (1, 1)) and state.call == 0:
+                # if a_pos != (1, 1) or pos != (1, 0) and pos != (0, 1) and pos != (1, 2) and pos != (1, 1) or state.call != 0:
                 print(state, 1 / count)
                 print(1 / count, end=" ", file=f)
+            else:
+                print(state, 0)
+                print(0, end=" ", file=f)
     elif int(sys.argv[2]) == 4:
-        # QUESTION 4
+        # q5
         for state in states:
             pos = (state.t_row, state.t_col)
             a_pos = (state.a_row, state.a_col)
