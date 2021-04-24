@@ -7,9 +7,9 @@
 ---
 
 **Position pairs for each cell on grid**
-(0,0) | (1,1) | (1,2) | (1,3)
-(1,0) | (1,1) | (1,2) | (1,3)
-*P.S. Make a grid in latex with these pairs in them*
+*(0,0)* | *(1,1)* | *(1,2)* | *(1,3)*
+:-: | :-: | :-: | :-:
+***(1,0)*** | ***(1,1)*** | ***(1,2)*** | ***(1,3)***
 
 Let the position of the agent be (*x<sub>a</sub>*,*y<sub>a</sub>*), the position of the target be (*x<sub>t</sub>*,*y<sub>t</sub>*) and let a variable *c* be *0* when the target is not on a call and *1* when the target is on a call.
 Then, the a state of the POMDP is determined by the 5-tuple (*x<sub>a</sub>*,*y<sub>a</sub>*,*x<sub>t</sub>*,*y<sub>t</sub>*,*c*).
@@ -34,7 +34,7 @@ Thus, the start states are *{(0,1,1,0,0),(0,2,1,0,0),(0,3,1,0,0),(1,2,1,0,0),(1,
 Hence, the initial belief state for these states has value *0.1* and value *0* for the rest of the states.
 
 **Start State**: *(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0)*
-*P.S. Include the actual start state if text wrapping is working. Leave it otherwise*
+<!-- *P.S. Include the actual start state if text wrapping is working. Leave it otherwise* -->
 
 ---
 
@@ -46,7 +46,7 @@ Thus, the start states are *{(1,1,0,1,0),(1,1,1,0,0),(1,1,1,1,0),(1,1,1,2,0)}* a
 Hence, the initial belief state for these states has value *0.25* and value *0* for the rest of the states.
 
 **Start State**: *(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ,0 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0, 0, 0, 0, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ,0 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)*
-*P.S. Include the actual start state if text wrapping is working. Leave it otherwise*
+<!-- *P.S. Include the actual start state if text wrapping is working. Leave it otherwise* -->
 
 ---
 
