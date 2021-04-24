@@ -30,7 +30,7 @@ Sensor accuracy while detecting *o6* is *100%*.
 *o6* is observed when the target is not in the 1 cell neighbourhood of the agent.
 Therefore, initially, the agent is equally likely to be in any of the cells *{(0,1),(0,2),(0,3),(1,2),(1,3)}*, and is completely unlikely to be in any other cell.
 Also, for each cell the agent is likely to be in, the target is equally like to be or not to be on a call.
-Thus, the start states are *{(0,1,1,0,0),(0,2,1,0,0),(0,3,1,0,0),(1,2,1,0,0),(1,3,1,0,0),(0,1,1,0,1),(0,2,1,0,1),(0,3,1,0,1),(1,2,1,0,1),(1,3,1,0,1)}* and all of them are equally likely.
+Thus, the start states are *{(0,1,1,0,0),(0,2,1,0,0),(0,3,1,0,0),(1,2,1,0,0),(1,3,1,0,0),(0,1,1,0,1),(0,2,1,0,1),(0,3,1,0,1),(1,2,1,0,1),(1,3,1,0,1)}* and all of them are equally likely, while any other state is completely unlikely.
 Hence, the initial belief state for these states has value *0.1* and value *0* for the rest of the states.
 
 **Start State**: *(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0)*
