@@ -1,5 +1,5 @@
-name=zishan
-rno=2019111031
+name=rajat
+rno=2019114015
 mkdir $name
 policy_file_name=$name/$rno.policy
 model_file_name=$name/$rno.pomdp
@@ -34,3 +34,5 @@ cd sarsop/src/
 ./pomdpeval ../../$model_file_name --policy-file ../../$policy_file_name --simLen 50 --simNum 500 > ../../$statistics_file_name
 cd ../../
 rm temp.txt
+zip -r $name.zip $name/
+rm -rf $name/
